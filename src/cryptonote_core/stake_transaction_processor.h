@@ -35,7 +35,7 @@ public:
   void invoke_update_stakes_handler(bool force = true);
 
   typedef BlockchainBasedList::supernode_tier_array supernode_tier_array;
-  typedef std::function<void(uint64_t block_number, const supernode_tier_array&)> blockchain_based_list_update_handler;
+  typedef std::function<void(uint64_t block_number, const crypto::hash& block_hash, const supernode_tier_array&)> blockchain_based_list_update_handler;
 
   /// Update handler for new blockchain based list
   void set_on_update_blockchain_based_list_handler(const blockchain_based_list_update_handler&);

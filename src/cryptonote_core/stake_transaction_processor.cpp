@@ -467,7 +467,12 @@ void StakeTransactionProcessor::invoke_update_blockchain_based_list_handler_impl
     uint64_t height = m_blockchain_based_list->block_height();
 
     for (size_t i=0; i<depth; i++)
-      m_on_blockchain_based_list_update(height - i, m_blockchain_based_list->tiers(i));
+    {
+      uint64_t     block_height = height - i;
+      crypto::hash block_hash   = m_blockchain.get_block_id_by_height(block_height);
+
+      m_on_blockchain_based_list_update(block_height, block_hash, m_blockchain_based_list->tiers(i));
+    }
 
     m_blockchain_based_list_need_update = false;
   }

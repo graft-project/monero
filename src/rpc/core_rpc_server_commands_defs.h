@@ -2342,9 +2342,11 @@ namespace cryptonote
     struct request
     {
       uint64_t block_height;
+      std::string block_hash;
       std::vector<tier> tiers;
       BEGIN_KV_SERIALIZE_MAP()
         KV_SERIALIZE(block_height)
+        KV_SERIALIZE(block_hash)
         KV_SERIALIZE(tiers)
       END_KV_SERIALIZE_MAP()
     };
