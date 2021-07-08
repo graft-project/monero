@@ -1,8 +1,8 @@
 #ifdef __CLASSIC_C__
-int main()
-{
+int main(ac, av)
   int ac;
   char* av[];
+{
 #else
 int main(int ac, char* av[])
 {
